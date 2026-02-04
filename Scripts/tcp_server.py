@@ -17,7 +17,7 @@ def main():
         client, address = server.accept() # def accept() -> tuple[socket, _RetAddress]
         print(f'[*] Accepted connection from {address[0]}:{address[1]}')
         client_handler = threading.Thread(target=handle_client, args=(client,))
-        client_handler.start()
+        client_handler.start() # サーバーのメイン繰り返し処理が別の接続を処理できる状態になる
 
 def handle_client(client_socket):
     with client_socket as sock:
